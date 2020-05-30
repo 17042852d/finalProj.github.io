@@ -1,0 +1,77 @@
+{
+"products":
+    [
+        {
+            "productID":"100000",
+            "productName":"Nioh - PlayStation 4",
+            "productQuantity":"10",
+            "productPrice":"368.00",
+            "productDescription":"Master the lethal art of the samurai in this brutal masocore action role-playing game… for death is coming. Journey to 1555 feudal Japan, a country gripped in the misery and madness of endless warfare. A place where monsters and evil spirits infest a land of natural beauty and menacing peril, where everyone from the smallest child to the bravest warrior lives in constant fear of the spiritual beings known as yokai. Play as a mute rogue living as a hired mercenary and renowned yokai hunter. Born to and abandoned by human and yokai parents, you are burdened with the ability to take on supernatural yokai form. Can you survive the treacherous Sengoku era and terrifying Dark Realm?",
+            "productImg":["nioh.jpg"]
+        },
+        {
+            "productID":"100001",
+            "productName":"Persona 5 - Royal Edition",
+            "productQuantity":"10",
+            "productPrice":"428.00",
+            "productDescription":"Prepare for an all-new RPG experience in Persona 5 Royal based in the universe of the award-winning series, Persona! Don the mask of Joker and join the Phantom Thieves of Hearts. Break free from the chains of modern society and stage grand heists to infiltrate the minds of the corrupt and make them change their ways! Persona 5 Royal is packed with new characters, confidants, story depth, new locations to explore, and a new grappling hook mechanic for stealthy access to new areas.",
+            "productImg":["persona_5_royal.jpg","Persona 5 Royal Screenshot.jpg","Persona 5 Royal Screenshot 1.jpg","Persona 5 Royal Screenshot 2.jpg","Persona 5 Royal Screenshot 3.jpg","Persona 5 Royal Screenshot 4.jpg","Persona 5 Royal Screenshot 5.jpg"]
+        },
+        {
+            "productID":"100002",
+            "productName":"Marvel’s Spider-Man - PlayStation 4",
+            "productQuantity":"20",
+            "productPrice":"538.00",
+            "productDescription":"Marvel’s Spider Man features your favorite web slinger in a story unlike any before it. Now a seasoned Super Hero, Peter Parker has been busy keeping crime off the streets as Spider Man. Just as he’s ready to focus on life as Peter, a new villain threatens New York City. Faced with overwhelming odds and higher stakes, Spider Man must rise up and be greater.",
+            "productImg":["spiderman.jpg"]
+        },
+        {
+            "productID":"100003",
+            "productName":"God of War Hits - PlayStation 4",
+            "productQuantity":"5",
+            "productPrice":"326.00",
+            "productDescription":"His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse gods and monsters. It is in this harsh, unforgiving world that he must fight to survive...And teach his son to do the same. This startling re-imagining of God of War deconstructs the core elements that defined the series-satisfying combat; breath-taking scale; and a powerful narrative-and fuses them anew.",
+            "productImg":["god_of_war.jpg"]
+        },
+        {
+            "productID":"100004",
+            "productName":"The Last of Us Hits - PlayStation 4",
+            "productQuantity":"10",
+            "productPrice":"160.00",
+            "productDescription":"Winner of over 200 Game of the Year awards, The Last of Us has been rebuilt for the PlayStation 4 system. Now featuring full 1080p, higher resolution character models, improved shadows and lighting, in addition to several other gameplay improvements. 20 years after a pandemic has radically changed known civilization, infected humans run wild and survivors are killing each other for food, weapons; whatever they can get their hands on. Joel, a violent survivor, is hired to smuggle a 14 year old girl, Ellie, out of an oppressive military quarantine zone, but what starts as a small job soon transforms into a brutal journey across the U.S. The Last of Us Remastered includes the Abandoned Territories Map Pack, Reclaimed Territories Map Pack, and the critically acclaimed The Last of Us: Left Behind Single Player campaign that combines themes of survival, loyalty, and love with tense, survival action gameplay.",
+            "productImg":["the_last_of_us.jpg"]
+        },
+        {
+            "productID":"100005",
+            "productName":"Final Fantasy VII: Remake - PlayStation 4",
+            "productQuantity":"15",
+            "productPrice":"599.00",
+            "productDescription":"A spectacular reimagining of one of the most visionary games ever, FINAL FANTASY VII REMAKE rebuilds and expands the legendary RPG for today. The first game in the FINAL FANTASY VII REMAKE project, delivering a level of depth inconceivable for the original. Mind-blowing story, unforgettable characters, epic battles and technical excellence collide. The world has fallen under the control of the Shinra Electric Power Company, a shadowy corporation controlling the planet's very life force as mako energy. In the sprawling city of Midgar, an anti-Shinra organization calling themselves Avalanche have stepped up their resistance. Cloud Strife, a former member of Shinra's elite SOLDIER unit now turned mercenary, lends his aid to the group, unaware of the epic consequences that await him.",
+            "productImg":["ff7.jpg"]
+        },
+        {
+            "productID":"100006",
+            "productName":"Yakuza 0 - PlayStation 4",
+            "productQuantity":"30",
+            "productPrice":"100.00",
+            "productDescription":"The glitz, glamour, and unbridled decadence of the 80s are back in Yakuza 0. Fight like hell through Tokyo and Osaka with protagonist Kazuma Kiryu and series regular Goro Majima. Play as Kazuma Kiryu and discover how he finds himself in a world of trouble when a simple debt collection goes wrong and his mark winds up murdered. Then, step into the silver-toed shoes of Goro Majima and explore his 'normal' life as the proprietor of a cabaret club.",
+            "productImg":["yakuza 0.jpg"]
+        },
+        {
+            "productID":"100007",
+            "productName":"Nier Automata - PlayStation 4",
+            "productQuantity":"5",
+            "productPrice":"399.00",
+            "productDescription":"NieR: Automata tells the story of androids 2B, 9S and A2 and their battle to reclaim the machine driven dystopia overrun by powerful machines. Humanity has been driven from the Earth by mechanical beings from another world. In a final effort to take back the planet, the human resistance sends a force of android soldiers to destroy the invaders. Now, a war between machines and androids rages on... A war that could soon unveil a long forgotten truth of the world.",
+            "productImg":["nier.jpg"]
+        },
+        {
+            "productID":"100008",
+            "productName":"Sims 4 - PlayStation 4",
+            "productQuantity":"2",
+            "productPrice":"99.00",
+            "productDescription":"Fulfill your Sims’ dreams it in the vibrant city of San Myshuno. Explore diverse neighborhoods and cultural festivals where your Sims can watch street performers, enter competitions, and meet different walks of life. Find your Sims’ first apartment, but be ready for the challenges that come with living in close quarters with other Sims. Work your way up from a charming but distressed starter unit to the penthouse of your Sims’ dreams. Launch new, metropolitan careers.",
+            "productImg":["sims.jpg"]
+        }
+    ]
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="Ivy Tam">
+	<link rel="icon" href="img/shop_icon.svg">
+  
+	<title>Ivy's Online Game Shop - Login</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  	<link rel="stylesheet" href="css/registration.css" />
+	<!-- Add icon library -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	<link rel="stylesheet" href="css/cart.css" />
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script src="js/cart.js"></script>
+
+</head>
+
+
+<body id="login">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+	  <img src="img/shop_icon.svg" width="30" height="30" alt="">
+	  Ivy's Online Game Shop
+	  </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        
+		<ul class="navbar-nav ml-auto" id="navLower">
+			<li class="nav-item" >
+				<a class="nav-link" href="login.html" id="login_page">Login</a>
+      </li>
+      <li class="nav-item dropdown"  id="login_icon">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="orderList.html">View My Order</a>
+          <a class="dropdown-item" href="changeInformation.html">Modify Information</a>
+          <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+        </div>
+      </li>
+			<li class="nav-item">
+				<a href="#" class="nav-link" data-toggle="modal" data-target="#shopping-cart-Modal">
+					<i class="fa fa-shopping-cart"></i> Cart
+					<span class='badge badge-primary badge-pill' id="item_in_cart">0</span>
+				</a>
+			</li>
+		</ul>
+		<form class="form-inline my-2 my-lg-0">
+		  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchBox">
+		  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" Onclick="setUrl(); return false;">Search</button>
+	   </form>
+      </div>
+    </div>
+  </nav>
+
+
+
+<div class="container-fluid  py-5">
+
+	
+	<div class="card bg-light py-5">
+	
+	<article class="card-body mx-auto " style="max-width: 40%;">
+		<div class="py-5 text-center">
+			<br>
+		<h2>Login</h2>
+		<p class="lead">Please input your login information below.</p>
+		</div>
+
+		<form class="needs-validation" action="login_success.html" novalidate>
+		<!-- form-group// -->
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+			 </div>
+			<input name="" class="form-control" placeholder="Email address" type="email" required>
+				<div class="invalid-feedback">
+				  Please input a email.
+				</div>
+		</div>
+
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+			</div>
+			<input class="form-control" placeholder="Password" type="password" required>
+				<div class="invalid-feedback">
+				  Please input a password.
+				</div>  
+		</div>
+		
+				<div class="center form-group custom-checkbox">
+					  <input type="checkbox" class="custom-control-input" id="defaultChecked2" checked>
+					  <label class="custom-control-label" for="defaultChecked2">Remember me</label>
+				</div>
+				
+		<div class="form-group">
+			<a href="#" class="btn btn-primary btn-block" onclick="login()"> Login </a>
+		</div> <!-- form-group// -->      
+		<p class="text-center">Don't have an Account? <a href="registration.html">Create New</a> </p>                                                                 
+	</form>
+		<p class="divider-text">
+			<span class="bg-light">OR</span>
+		</p>
+		<p>
+			<a href="#" class="btn btn-block btn-google" onclick="login()"> <i class="fab fa-google"></i>   Login via Google</a>
+			<a href="#" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f" onclick="login()"></i>   Login via facebook</a>
+		</p>
+	</article>
+	</div> <!-- card.// -->
+
+</div> 
+<!-- show shopping cart-->
+<div class="modal fade" id="shopping-cart-Modal" tabindex="-1" role="dialog" aria-labelledby="shoppingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Shopping Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="list-group" id="cart_list">
+            <!--Shopping Cart here-->    
+          </div>
+        </div>
+          <div class="modal-footer" id="checkout_cart">
+            <a class="btn btn-primary" href="shoppingCart.html">Proceed to checkout</a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark fixed-bottom">
+    <div class="container text-center text-white">
+				<br>
+					<p><strong><h2>- Contact Me -</h2></p></strong>
+				<br>
+					<h6>You can contact me through these ways:</h6>
+					<br>
+					<div class="row">
+    					<div class="col-4"></div>
+    					<div class="col">
+    						<div class="Gradient">
+    						<a href="https://twitter.com/explore"><img class="zoomFunction" src="img/twitter.png" class="rounded" alt="twitter" alt="zoom">
+    						</div>
+    				</div>
+    				<div class="col">
+    					<div class="Gradient">
+    					<a href="https://zh-hk.facebook.com/"><img class="zoomFunction" src="img/fb.png" alt="facebook" class="rounded" alt="zoom" ></a>
+    					</div>
+    				</div>
+    				<div class="col">
+    					<div class="Gradient">
+    					<a href="https://mail.google.com/"><img class="zoomFunction" src="img/gmail.png" alt="gmail" class="rounded" alt="zoom" ></a>
+    					</div>
+    				</div>
+    				<div class="col-4">
+    				</div>
+
+					</div>
+						<br><br>
+						<p class="text-center text-muted"><small>Copyright ©2020 All rights reserved</small></p>
+    					
+			</div>
+  </footer>
+<!--container end.//-->
+		<script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function() {
+		  'use strict';
+		  window.addEventListener('load', function() {
+			// Fetch all the forms we want to apply custom Bootstrap validation styles to
+			var forms = document.getElementsByClassName('needs-validation');
+			// Loop over them and prevent submission
+			var validation = Array.prototype.filter.call(forms, function(form) {
+			  form.addEventListener('submit', function(event) {
+				if (form.checkValidity() === false) {
+				  event.preventDefault();
+				  event.stopPropagation();
+				}
+				form.classList.add('was-validated');
+			  }, false);
+			});
+		  }, false);
+		})();
+
+		function login(){
+			$.cookie('login','yes',{path:'/'});
+			alert("redirect");
+			window.location.href = "login_success.html";
+		}
+		</script>
+</body>
+</html>

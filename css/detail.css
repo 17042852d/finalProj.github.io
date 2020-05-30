@@ -1,0 +1,75 @@
+html, body {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.navbar {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 1rem;
+	background:#222;
+	color: #f2f2f2;
+}
+
+/** Shop: Thumbnails **/
+.thumbnail {
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	padding: 20px;
+	margin-bottom: 20px;
+	background-color: white;
+	text-align: center;
+}
+.thumbnail:hover {
+	border-color: rgba(0, 0, 0, 0.07);
+}
+.thumbnail> a {
+	color: #333333;
+}
+.thumbnail > a:hover {
+	text-decoration: none;
+}
+
+.thumbnail_img {
+	position: relative;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.thumbnail_img > img{
+	max-width:100%;
+}
+
+.thumbnail_title {
+	font-weight: 600;
+}
+.thumbnail_price, .thumbnail_price_discount > .old_price{
+	color: #777777;
+}
+
+.thumbnail_price_discount {
+	color: red;
+}
+
+.thumbnail_price_discount > .old_price{
+	text-decoration: line-through;
+}
+
+.small_thumbnail{
+	width:72px;
+	height:72px;
+}
+
+.text-nowrap{
+	white-space: nowrap;
+}
+
+.col img{
+	width:100%;
+}
+
+.border-3 {
+	border-width:3px !important;
+}

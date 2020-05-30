@@ -1,0 +1,13 @@
+Playstation 4	343
+Xbox One	242
+Switch	25
+WiiU	11
+PS Vita	32
+Retro Classic	18
+Playstation 1	12
+Playstation 2	62
+Playstation 3	83
+Xbox 360	272
+Nintendo DS	110
+Nintendo 3DS	6
+PC	2

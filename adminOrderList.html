@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>17042852D: Online Game Shop - Shopping Cart</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Ivy Tam">
+	<meta name="description" content="An Online Game Shop, owner is Ivy Tam.">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/index.css" />
+	<link rel="stylesheet" href="css/orderList.css" />
+	<!-- Add icon library -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<!-- Add bootstrap-table library-->
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+	<script src="js/adminOrderList.js"></script>
+</head>
+
+  <body class="bg-light">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+		  <a class="navbar-brand" href="#">
+		  <img src="img/shop_icon.svg" width="30" height="30" alt="">
+		  Ivy's Online Game Shop
+		  </a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav">
+			  <li class="nav-item active">
+				<a class="nav-link" href="#">Home
+				  <span class="sr-only">(current)</span>
+				</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Product</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#">Contact Us</a>
+			  </li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Login</a>
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link" data-toggle="modal" data-target="#shopping-cart-Modal">
+						<i class="fa fa-shopping-cart"></i> Cart
+						<span class='badge badge-primary badge-pill'>2</span>
+					</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+			  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchBox">
+			  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" Onclick="setUrl(); return false;">Search</button>
+		   </form>
+		  </div>
+		</div>
+	  </nav>
+		
+	<div class="container my-auto">
+		<div class="py-3 text-center">
+			<h2>Admin Order List</h2>
+			<p class="lead">Please find your customer's order list below</p>
+		</div>
+		<table data-toggle="table" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"
+		data-toolbar="#toolbar"
+		data-search="true"
+		data-show-refresh="true"
+		data-show-toggle="true"
+		data-show-fullscreen="true"
+		data-show-columns="true"
+		data-show-columns-toggle-all="true"
+		data-show-export="true"
+		data-minimum-count-columns="2"
+		data-show-pagination-switch="true"
+		data-pagination="true"
+		data-id-field="id"
+		data-page-list="[10, 25, 50, 100, all]"
+  		data-response-handler="responseHandler">
+			<thead>
+			  <tr>
+				<th class="th-sm" data-sortable="true" data-field="orderNo">Order#
+				</th>
+				<th class="th-sm" data-sortable="true" data-field="name">Name
+				</th>
+				<th class="th-sm" data-sortable="true" data-field="email" scope="col" style="width:10%;">Email
+				</th>
+				<th class="th-sm" data-sortable="true" data-field="phoneNo">Phone No
+				</th>
+				<th class="th-sm" data-sortable="true" data-field="orderDate">Ordered Date
+				</th>
+				<th class="th-sm" data-sortable="true" data-field="updateDate">Last Update
+				</th>
+				<th class="th-sm" data-sortable="true" data-field="numberItem">Number of item
+				</th>
+				<th class="th-sm" data-sortable="true" data-field="price">Price
+				</th>
+				<th class="th-sm" data-field="status">Status
+				</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>100000</td>
+					<td>Amela Whitley</td>
+					<td>Mauris@consequatdolor.net</td>
+					<td>92831769</td>
+					<td>18/05/2020</td>
+					<td>03/06/2020</td>
+					<td>8</td>
+					<td>HK$764.34</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100001</td>
+					<td>Maryam Bernard</td>
+					<td>Lorem.ipsum.dolor@duinec.co.uk</td>
+					<td>94447149</td>
+					<td>14/05/2020</td>
+					<td>16/06/2020</td>
+					<td>10</td>
+					<td>HK$817.60</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100002</td>
+					<td>Tatiana Jacobs</td>
+					<td>est.Mauris@loremtristique.org</td>
+					<td>97837458</td>
+					<td>27/05/2020</td>
+					<td>03/06/2020</td>
+					<td>4</td>
+					<td>HK$099.34</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100003</td>
+					<td>Kylee Moon</td>
+					<td>vulputate.mauris.sagittis@condimentumeget.co.uk</td>
+					<td>99367531</td>
+					<td>23/05/2020</td>
+					<td>26/06/2020</td>
+					<td>5</td>
+					<td>HK$382.90</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100004</td>
+					<td>Genevieve Figueroa</td>
+					<td>In.ornare.sagittis@odiotristiquepharetra.co.uk</td>
+					<td>96843405</td>
+					<td>06/05/2020</td>
+					<td>02/06/2020</td>
+					<td>10</td>
+					<td>HK$840.70</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100005</td>
+					<td>Claudia Stephenson</td>
+					<td>elit.dictum.eu@arcuAliquam.co.uk</td>
+					<td>95238979</td>
+					<td>24/05/2020</td>
+					<td>25/06/2020</td>
+					<td>6</td>
+					<td>HK$205.42</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100006</td>
+					<td>Portia Vincent</td>
+					<td>at@malesuada.net</td>
+					<td>91756330</td>
+					<td>24/05/2020</td>
+					<td>16/06/2020</td>
+					<td>10</td>
+					<td>HK$876.22</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100007</td>
+					<td>Blaine Smith</td>
+					<td>turpis.Nulla@urnaNullam.com</td>
+					<td>95613558</td>
+					<td>23/05/2020</td>
+					<td>04/06/2020</td>
+					<td>6</td>
+					<td>HK$462.14</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100008</td>
+					<td>Eleanor Guerra</td>
+					<td>lobortis@Sedegetlacus.com</td>
+					<td>93911594</td>
+					<td>26/05/2020</td>
+					<td>08/06/2020</td>
+					<td>2</td>
+					<td>HK$651.33</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100009</td>
+					<td>Fallon Crawford</td>
+					<td>Quisque@Nullamnisl.com</td>
+					<td>96305503</td>
+					<td>29/05/2020</td>
+					<td>26/06/2020</td>
+					<td>2</td>
+					<td>HK$433.54</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100010</td>
+					<td>Leigh Alvarez</td>
+					<td>mauris.sagittis@cursus.com</td>
+					<td>90333471</td>
+					<td>25/05/2020</td>
+					<td>24/06/2020</td>
+					<td>2</td>
+					<td>HK$316.94</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100011</td>
+					<td>Haviva Snow</td>
+					<td>taciti.sociosqu@egestasDuisac.edu</td>
+					<td>95762141</td>
+					<td>30/05/2020</td>
+					<td>01/06/2020</td>
+					<td>7</td>
+					<td>HK$112.47</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100012</td>
+					<td>Avye Hughes</td>
+					<td>ornare.elit@ridiculus.com</td>
+					<td>91401261</td>
+					<td>10/05/2020</td>
+					<td>03/06/2020</td>
+					<td>5</td>
+					<td>HK$712.92</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100013</td>
+					<td>Ria Zamora</td>
+					<td>convallis.dolor@Donecatarcu.com</td>
+					<td>90233292</td>
+					<td>23/05/2020</td>
+					<td>06/06/2020</td>
+					<td>3</td>
+					<td>HK$731.96</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100014</td>
+					<td>Guinevere Avila</td>
+					<td>fermentum.vel@idsapienCras.org</td>
+					<td>94429352</td>
+					<td>05/05/2020</td>
+					<td>14/06/2020</td>
+					<td>9</td>
+					<td>HK$437.50</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100015</td>
+					<td>Quincy House</td>
+					<td>mauris.Integer@eleifendvitae.net</td>
+					<td>99764998</td>
+					<td>18/05/2020</td>
+					<td>27/06/2020</td>
+					<td>9</td>
+					<td>HK$592.82</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100016</td>
+					<td>Heidi Strong</td>
+					<td>Quisque.ornare@acmattis.ca</td>
+					<td>91964179</td>
+					<td>14/05/2020</td>
+					<td>10/06/2020</td>
+					<td>9</td>
+					<td>HK$217.40</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100017</td>
+					<td>Zoe Sanders</td>
+					<td>eleifend.Cras@molestietellusAenean.edu</td>
+					<td>99562985</td>
+					<td>17/05/2020</td>
+					<td>15/06/2020</td>
+					<td>3</td>
+					<td>HK$835.58</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100018</td>
+					<td>Deirdre Burris</td>
+					<td>est.Nunc@fermentumfermentumarcu.com</td>
+					<td>97008536</td>
+					<td>17/05/2020</td>
+					<td>16/06/2020</td>
+					<td>7</td>
+					<td>HK$805.19</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100019</td>
+					<td>Demetria Robinson</td>
+					<td>malesuada.fringilla@lorem.net</td>
+					<td>93435243</td>
+					<td>27/05/2020</td>
+					<td>23/06/2020</td>
+					<td>2</td>
+					<td>HK$191.09</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100020</td>
+					<td>Eliana Douglas</td>
+					<td>pede.sagittis.augue@tellusfaucibusleo.com</td>
+					<td>90510648</td>
+					<td>20/05/2020</td>
+					<td>09/06/2020</td>
+					<td>3</td>
+					<td>HK$903.53</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100021</td>
+					<td>Clio Witt</td>
+					<td>amet@liberomauris.net</td>
+					<td>90770530</td>
+					<td>20/05/2020</td>
+					<td>17/06/2020</td>
+					<td>5</td>
+					<td>HK$156.82</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100022</td>
+					<td>Nevada Mendoza</td>
+					<td>vel.nisl@velconvallisin.ca</td>
+					<td>90551670</td>
+					<td>06/05/2020</td>
+					<td>23/06/2020</td>
+					<td>4</td>
+					<td>HK$898.74</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100023</td>
+					<td>Katell Willis</td>
+					<td>turpis@feugiatnon.ca</td>
+					<td>94546661</td>
+					<td>07/05/2020</td>
+					<td>14/06/2020</td>
+					<td>2</td>
+					<td>HK$923.13</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100024</td>
+					<td>Brooke Burt</td>
+					<td>vulputate@aliquetnec.org</td>
+					<td>91525544</td>
+					<td>28/05/2020</td>
+					<td>21/06/2020</td>
+					<td>4</td>
+					<td>HK$651.05</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100025</td>
+					<td>Karen Aguirre</td>
+					<td>urna.Ut@Curabiturmassa.ca</td>
+					<td>94394659</td>
+					<td>31/05/2020</td>
+					<td>01/06/2020</td>
+					<td>7</td>
+					<td>HK$718.71</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100026</td>
+					<td>Carol Kirby</td>
+					<td>enim.non.nisi@orciconsectetuereuismod.edu</td>
+					<td>96104453</td>
+					<td>15/05/2020</td>
+					<td>13/06/2020</td>
+					<td>5</td>
+					<td>HK$450.01</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100027</td>
+					<td>Nina Sparks</td>
+					<td>Nullam@sapien.co.uk</td>
+					<td>92757793</td>
+					<td>08/05/2020</td>
+					<td>18/06/2020</td>
+					<td>9</td>
+					<td>HK$157.81</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100028</td>
+					<td>Margaret Chandler</td>
+					<td>erat.vitae@feugiatSednec.net</td>
+					<td>92876635</td>
+					<td>07/05/2020</td>
+					<td>10/06/2020</td>
+					<td>8</td>
+					<td>HK$226.78</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100029</td>
+					<td>Dai Strickland</td>
+					<td>Morbi.non@lacinia.org</td>
+					<td>92159395</td>
+					<td>27/05/2020</td>
+					<td>12/06/2020</td>
+					<td>5</td>
+					<td>HK$228.36</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100030</td>
+					<td>Kelsey Frank</td>
+					<td>luctus.felis.purus@atnisiCum.ca</td>
+					<td>90833540</td>
+					<td>19/05/2020</td>
+					<td>27/06/2020</td>
+					<td>4</td>
+					<td>HK$736.79</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100031</td>
+					<td>Eleanor Schneider</td>
+					<td>cubilia@Proinvelit.ca</td>
+					<td>96362096</td>
+					<td>26/05/2020</td>
+					<td>13/06/2020</td>
+					<td>2</td>
+					<td>HK$696.92</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100032</td>
+					<td>Aileen Higgins</td>
+					<td>facilisis.magna.tellus@velquam.ca</td>
+					<td>93749109</td>
+					<td>18/05/2020</td>
+					<td>18/06/2020</td>
+					<td>2</td>
+					<td>HK$168.57</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100033</td>
+					<td>Rama Montgomery</td>
+					<td>enim.sit.amet@dui.com</td>
+					<td>99196606</td>
+					<td>19/05/2020</td>
+					<td>06/06/2020</td>
+					<td>3</td>
+					<td>HK$480.54</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100034</td>
+					<td>Camille Oneill</td>
+					<td>eu@arcu.co.uk</td>
+					<td>94191669</td>
+					<td>30/05/2020</td>
+					<td>12/06/2020</td>
+					<td>8</td>
+					<td>HK$868.96</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100035</td>
+					<td>Zena Shaw</td>
+					<td>nascetur.ridiculus.mus@malesuada.co.uk</td>
+					<td>94820302</td>
+					<td>29/05/2020</td>
+					<td>20/06/2020</td>
+					<td>6</td>
+					<td>HK$743.78</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100036</td>
+					<td>Inez Moore</td>
+					<td>Aliquam.auctor.velit@Sedeu.ca</td>
+					<td>92273812</td>
+					<td>27/05/2020</td>
+					<td>12/06/2020</td>
+					<td>5</td>
+					<td>HK$012.79</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100037</td>
+					<td>Cynthia Ball</td>
+					<td>magna.a@fringillamilacinia.edu</td>
+					<td>97850881</td>
+					<td>13/05/2020</td>
+					<td>19/06/2020</td>
+					<td>1</td>
+					<td>HK$991.26</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100038</td>
+					<td>Audra Newton</td>
+					<td>eget.tincidunt.dui@convalliserateget.net</td>
+					<td>94299904</td>
+					<td>14/05/2020</td>
+					<td>13/06/2020</td>
+					<td>1</td>
+					<td>HK$977.89</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100039</td>
+					<td>Victoria Salazar</td>
+					<td>accumsan.sed@nisia.org</td>
+					<td>92523347</td>
+					<td>01/05/2020</td>
+					<td>15/06/2020</td>
+					<td>10</td>
+					<td>HK$583.91</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100040</td>
+					<td>Kevyn Gay</td>
+					<td>placerat@facilisisegetipsum.com</td>
+					<td>91148895</td>
+					<td>14/05/2020</td>
+					<td>20/06/2020</td>
+					<td>9</td>
+					<td>HK$300.31</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100041</td>
+					<td>Hermione Townsend</td>
+					<td>nec@nonmassa.net</td>
+					<td>99866419</td>
+					<td>29/05/2020</td>
+					<td>23/06/2020</td>
+					<td>8</td>
+					<td>HK$556.94</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100042</td>
+					<td>Shaine Bauer</td>
+					<td>facilisis@tinciduntnunc.edu</td>
+					<td>95870059</td>
+					<td>03/05/2020</td>
+					<td>28/06/2020</td>
+					<td>2</td>
+					<td>HK$501.59</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100043</td>
+					<td>Farrah Walls</td>
+					<td>convallis.ligula.Donec@Integer.co.uk</td>
+					<td>94984296</td>
+					<td>07/05/2020</td>
+					<td>11/06/2020</td>
+					<td>2</td>
+					<td>HK$316.67</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100044</td>
+					<td>Azalia Jacobson</td>
+					<td>sed@luctus.net</td>
+					<td>99116166</td>
+					<td>07/05/2020</td>
+					<td>05/06/2020</td>
+					<td>5</td>
+					<td>HK$071.07</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100045</td>
+					<td>Carissa Camacho</td>
+					<td>Suspendisse@sit.ca</td>
+					<td>98360041</td>
+					<td>15/05/2020</td>
+					<td>10/06/2020</td>
+					<td>2</td>
+					<td>HK$614.30</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100046</td>
+					<td>Flavia Winters</td>
+					<td>nibh.enim.gravida@elitfermentumrisus.net</td>
+					<td>92709958</td>
+					<td>28/05/2020</td>
+					<td>24/06/2020</td>
+					<td>9</td>
+					<td>HK$717.31</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100047</td>
+					<td>Camilla Macdonald</td>
+					<td>pede@ligulatortor.edu</td>
+					<td>92037924</td>
+					<td>10/05/2020</td>
+					<td>25/06/2020</td>
+					<td>2</td>
+					<td>HK$798.09</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100048</td>
+					<td>Ariana Henderson</td>
+					<td>amet@Maurisquis.edu</td>
+					<td>95488485</td>
+					<td>07/05/2020</td>
+					<td>21/06/2020</td>
+					<td>2</td>
+					<td>HK$454.38</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100049</td>
+					<td>Alexandra Clayton</td>
+					<td>vel.vulputate.eu@purusNullam.org</td>
+					<td>97880121</td>
+					<td>01/05/2020</td>
+					<td>11/06/2020</td>
+					<td>9</td>
+					<td>HK$906.31</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100050</td>
+					<td>Jana Camacho</td>
+					<td>velit.justo.nec@placeratorcilacus.com</td>
+					<td>97924933</td>
+					<td>23/05/2020</td>
+					<td>19/06/2020</td>
+					<td>4</td>
+					<td>HK$140.17</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100051</td>
+					<td>Uma Reeves</td>
+					<td>leo.Vivamus@blanditNam.net</td>
+					<td>98676938</td>
+					<td>13/05/2020</td>
+					<td>03/06/2020</td>
+					<td>9</td>
+					<td>HK$875.51</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100052</td>
+					<td>Quintessa Guthrie</td>
+					<td>ornare.sagittis.felis@rutrumnonhendrerit.org</td>
+					<td>93599707</td>
+					<td>08/05/2020</td>
+					<td>18/06/2020</td>
+					<td>7</td>
+					<td>HK$018.40</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100053</td>
+					<td>Constance Scott</td>
+					<td>tempor.bibendum@arcu.ca</td>
+					<td>91149101</td>
+					<td>21/05/2020</td>
+					<td>23/06/2020</td>
+					<td>1</td>
+					<td>HK$408.57</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100054</td>
+					<td>Hanna White</td>
+					<td>justo.eu.arcu@convalliserateget.org</td>
+					<td>95442831</td>
+					<td>10/05/2020</td>
+					<td>02/06/2020</td>
+					<td>2</td>
+					<td>HK$658.26</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100055</td>
+					<td>September Gay</td>
+					<td>Fusce.feugiat@bibendumfermentum.co.uk</td>
+					<td>93924461</td>
+					<td>17/05/2020</td>
+					<td>20/06/2020</td>
+					<td>9</td>
+					<td>HK$566.48</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100056</td>
+					<td>Fallon Warren</td>
+					<td>Nunc.mauris@elitdictum.org</td>
+					<td>98668312</td>
+					<td>27/05/2020</td>
+					<td>29/06/2020</td>
+					<td>9</td>
+					<td>HK$870.98</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100057</td>
+					<td>Oprah Jacobson</td>
+					<td>Integer@necorciDonec.com</td>
+					<td>96612650</td>
+					<td>25/05/2020</td>
+					<td>13/06/2020</td>
+					<td>4</td>
+					<td>HK$236.17</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100058</td>
+					<td>Miranda Foley</td>
+					<td>pretium.aliquet@Sed.co.uk</td>
+					<td>99038140</td>
+					<td>03/05/2020</td>
+					<td>16/06/2020</td>
+					<td>3</td>
+					<td>HK$248.77</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100059</td>
+					<td>Hadley Mckay</td>
+					<td>nulla@risus.com</td>
+					<td>96192223</td>
+					<td>10/05/2020</td>
+					<td>11/06/2020</td>
+					<td>2</td>
+					<td>HK$831.40</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100060</td>
+					<td>Freya Small</td>
+					<td>ac.fermentum@enim.org</td>
+					<td>90764275</td>
+					<td>11/05/2020</td>
+					<td>24/06/2020</td>
+					<td>2</td>
+					<td>HK$037.32</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100061</td>
+					<td>Venus Durham</td>
+					<td>imperdiet@rutrumnonhendrerit.org</td>
+					<td>99753494</td>
+					<td>17/05/2020</td>
+					<td>19/06/2020</td>
+					<td>7</td>
+					<td>HK$203.11</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100062</td>
+					<td>Hayley Alvarez</td>
+					<td>rhoncus.id.mollis@erateget.net</td>
+					<td>94754951</td>
+					<td>26/05/2020</td>
+					<td>02/06/2020</td>
+					<td>2</td>
+					<td>HK$374.17</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100063</td>
+					<td>Cathleen Aguirre</td>
+					<td>et@Morbineque.net</td>
+					<td>91522769</td>
+					<td>17/05/2020</td>
+					<td>11/06/2020</td>
+					<td>1</td>
+					<td>HK$650.19</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100064</td>
+					<td>Charde Kramer</td>
+					<td>consectetuer@sodales.co.uk</td>
+					<td>99220886</td>
+					<td>20/05/2020</td>
+					<td>15/06/2020</td>
+					<td>6</td>
+					<td>HK$111.30</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100065</td>
+					<td>Macy Sanford</td>
+					<td>tincidunt@quam.net</td>
+					<td>93767415</td>
+					<td>08/05/2020</td>
+					<td>23/06/2020</td>
+					<td>3</td>
+					<td>HK$373.87</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100066</td>
+					<td>Amy Dennis</td>
+					<td>mauris@SuspendisseduiFusce.edu</td>
+					<td>90229057</td>
+					<td>15/05/2020</td>
+					<td>11/06/2020</td>
+					<td>2</td>
+					<td>HK$666.75</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100067</td>
+					<td>Cassandra Walker</td>
+					<td>semper.Nam.tempor@famesacturpis.co.uk</td>
+					<td>96671717</td>
+					<td>29/05/2020</td>
+					<td>03/06/2020</td>
+					<td>4</td>
+					<td>HK$964.61</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100068</td>
+					<td>Kylynn Livingston</td>
+					<td>vel.pede@netusetmalesuada.org</td>
+					<td>97951171</td>
+					<td>14/05/2020</td>
+					<td>29/06/2020</td>
+					<td>1</td>
+					<td>HK$470.83</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100069</td>
+					<td>Casey Kaufman</td>
+					<td>ac@sagittisaugue.com</td>
+					<td>92436839</td>
+					<td>16/05/2020</td>
+					<td>07/06/2020</td>
+					<td>2</td>
+					<td>HK$332.54</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100070</td>
+					<td>Hyacinth James</td>
+					<td>vel.mauris.Integer@dapibusrutrumjusto.com</td>
+					<td>93283917</td>
+					<td>29/05/2020</td>
+					<td>20/06/2020</td>
+					<td>5</td>
+					<td>HK$012.74</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100071</td>
+					<td>Anjolie May</td>
+					<td>risus.In@augue.ca</td>
+					<td>90949755</td>
+					<td>02/05/2020</td>
+					<td>12/06/2020</td>
+					<td>2</td>
+					<td>HK$368.21</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100072</td>
+					<td>Piper Valencia</td>
+					<td>et.ipsum@tellusid.ca</td>
+					<td>91054793</td>
+					<td>28/05/2020</td>
+					<td>07/06/2020</td>
+					<td>4</td>
+					<td>HK$404.24</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100073</td>
+					<td>Kim Jackson</td>
+					<td>Nam@convallisin.org</td>
+					<td>97149410</td>
+					<td>12/05/2020</td>
+					<td>22/06/2020</td>
+					<td>1</td>
+					<td>HK$482.85</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100074</td>
+					<td>Kiayada Peck</td>
+					<td>quis.lectus@quis.edu</td>
+					<td>97251320</td>
+					<td>20/05/2020</td>
+					<td>18/06/2020</td>
+					<td>6</td>
+					<td>HK$500.86</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100075</td>
+					<td>Yoko Lindsay</td>
+					<td>Mauris@libero.co.uk</td>
+					<td>93350845</td>
+					<td>07/05/2020</td>
+					<td>11/06/2020</td>
+					<td>4</td>
+					<td>HK$970.51</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100076</td>
+					<td>Anika Kane</td>
+					<td>enim.Suspendisse.aliquet@sagittis.net</td>
+					<td>96669155</td>
+					<td>24/05/2020</td>
+					<td>08/06/2020</td>
+					<td>2</td>
+					<td>HK$229.65</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100077</td>
+					<td>Ila French</td>
+					<td>vitae.dolor@magna.net</td>
+					<td>93465712</td>
+					<td>15/05/2020</td>
+					<td>26/06/2020</td>
+					<td>2</td>
+					<td>HK$085.44</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100078</td>
+					<td>Xantha Morrison</td>
+					<td>faucibus.orci.luctus@morbitristiquesenectus.com</td>
+					<td>99007637</td>
+					<td>31/05/2020</td>
+					<td>13/06/2020</td>
+					<td>6</td>
+					<td>HK$397.36</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100079</td>
+					<td>Zia Gamble</td>
+					<td>ipsum.primis@magnaDuisdignissim.edu</td>
+					<td>90886396</td>
+					<td>06/05/2020</td>
+					<td>04/06/2020</td>
+					<td>2</td>
+					<td>HK$015.32</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100080</td>
+					<td>Christine Wall</td>
+					<td>ante@dis.com</td>
+					<td>92860455</td>
+					<td>27/05/2020</td>
+					<td>02/06/2020</td>
+					<td>4</td>
+					<td>HK$803.79</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100081</td>
+					<td>Paula Franks</td>
+					<td>convallis.erat.eget@vitaediam.org</td>
+					<td>99502096</td>
+					<td>17/05/2020</td>
+					<td>07/06/2020</td>
+					<td>3</td>
+					<td>HK$704.00</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100082</td>
+					<td>Frances Mitchell</td>
+					<td>tempus@Curabiturdictum.com</td>
+					<td>96921992</td>
+					<td>06/05/2020</td>
+					<td>14/06/2020</td>
+					<td>1</td>
+					<td>HK$173.42</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100083</td>
+					<td>Tanya Jennings</td>
+					<td>sagittis.Duis@antelectusconvallis.edu</td>
+					<td>92946971</td>
+					<td>16/05/2020</td>
+					<td>26/06/2020</td>
+					<td>5</td>
+					<td>HK$815.86</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100084</td>
+					<td>Freya Riley</td>
+					<td>vitae.nibh@fermentumrisusat.net</td>
+					<td>90146998</td>
+					<td>23/05/2020</td>
+					<td>22/06/2020</td>
+					<td>2</td>
+					<td>HK$873.18</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100085</td>
+					<td>Janna Glenn</td>
+					<td>arcu@disparturientmontes.edu</td>
+					<td>91757278</td>
+					<td>30/05/2020</td>
+					<td>14/06/2020</td>
+					<td>5</td>
+					<td>HK$567.48</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100086</td>
+					<td>Jasmine Barry</td>
+					<td>eget.volutpat.ornare@eleifend.ca</td>
+					<td>94538751</td>
+					<td>05/05/2020</td>
+					<td>22/06/2020</td>
+					<td>4</td>
+					<td>HK$923.37</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100087</td>
+					<td>Hollee Banks</td>
+					<td>dolor@consectetuer.edu</td>
+					<td>95883682</td>
+					<td>06/05/2020</td>
+					<td>08/06/2020</td>
+					<td>5</td>
+					<td>HK$029.23</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100088</td>
+					<td>Quon Cunningham</td>
+					<td>sociosqu.ad@orciin.co.uk</td>
+					<td>99793510</td>
+					<td>02/05/2020</td>
+					<td>26/06/2020</td>
+					<td>5</td>
+					<td>HK$747.50</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100089</td>
+					<td>Naida Goff</td>
+					<td>Pellentesque.habitant@Nunclectus.org</td>
+					<td>91209367</td>
+					<td>05/05/2020</td>
+					<td>15/06/2020</td>
+					<td>6</td>
+					<td>HK$493.56</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100090</td>
+					<td>Kimberly Randolph</td>
+					<td>sapien.Cras@convallisdolorQuisque.org</td>
+					<td>97086324</td>
+					<td>06/05/2020</td>
+					<td>13/06/2020</td>
+					<td>7</td>
+					<td>HK$153.93</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100091</td>
+					<td>Jenette Sears</td>
+					<td>malesuada@ultrices.net</td>
+					<td>99695833</td>
+					<td>09/05/2020</td>
+					<td>14/06/2020</td>
+					<td>5</td>
+					<td>HK$689.76</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100092</td>
+					<td>Lucy Stephens</td>
+					<td>lorem.lorem@egestashendrerit.edu</td>
+					<td>94587711</td>
+					<td>30/05/2020</td>
+					<td>18/06/2020</td>
+					<td>6</td>
+					<td>HK$543.32</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100093</td>
+					<td>Yeo Hernandez</td>
+					<td>non.magna@famesacturpis.edu</td>
+					<td>96916363</td>
+					<td>18/05/2020</td>
+					<td>19/06/2020</td>
+					<td>4</td>
+					<td>HK$719.17</td>
+					<td>Ordered</td>
+				</tr>
+				<tr>
+					<td>100094</td>
+					<td>Rae May</td>
+					<td>mauris.ut@insodaleselit.com</td>
+					<td>90964450</td>
+					<td>24/05/2020</td>
+					<td>14/06/2020</td>
+					<td>2</td>
+					<td>HK$834.24</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100095</td>
+					<td>Daria Mccormick</td>
+					<td>felis@sem.org</td>
+					<td>93236953</td>
+					<td>18/05/2020</td>
+					<td>20/06/2020</td>
+					<td>7</td>
+					<td>HK$834.54</td>
+					<td>Order Preparation</td>
+				</tr>
+				<tr>
+					<td>100096</td>
+					<td>Natalie Keller</td>
+					<td>tincidunt.adipiscing.Mauris@atrisusNunc.ca</td>
+					<td>92946953</td>
+					<td>25/05/2020</td>
+					<td>02/06/2020</td>
+					<td>7</td>
+					<td>HK$578.99</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100097</td>
+					<td>Abra Harmon</td>
+					<td>erat.neque.non@nequevitae.net</td>
+					<td>98977410</td>
+					<td>26/05/2020</td>
+					<td>30/06/2020</td>
+					<td>3</td>
+					<td>HK$000.82</td>
+					<td>Order Shipped</td>
+				</tr>
+				<tr>
+					<td>100098</td>
+					<td>Alice Barker</td>
+					<td>et@eratvitae.ca</td>
+					<td>96229041</td>
+					<td>06/05/2020</td>
+					<td>11/06/2020</td>
+					<td>7</td>
+					<td>HK$935.79</td>
+					<td>Completed</td>
+				</tr>
+				<tr>
+					<td>100099</td>
+					<td>India Hess</td>
+					<td>quam.elementum.at@Nam.net</td>
+					<td>98463746</td>
+					<td>16/05/2020</td>
+					<td>11/06/2020</td>
+					<td>6</td>
+					<td>HK$057.28</td>
+					<td>Completed</td>
+				</tr>
+			</tbody>
+	</div>
+		
+</body>
+</html>
